@@ -1,4 +1,4 @@
-<?php
+<i?php
 
 
 if (!isset($_POST))
@@ -12,7 +12,7 @@ $response = "unsupported request type, politely FUCK OFF";
 switch ($request["type"])
 {
 	case "login":
-		$response = "login, yeah we can do that";
+		$response = "Login? Such a Beautiful thing";
 	break;
 }
 echo json_encode($response);
