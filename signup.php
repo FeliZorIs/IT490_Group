@@ -1,6 +1,5 @@
-<?php
+i<?php
 session_start();
-
 
 $username = "";
 $errors = array(); 
@@ -38,12 +37,12 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);
 
-  	$query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$password')";
+  	$query = "INSERT INTO ACCOUNTS (username, password) 
+  			  VALUES('$username','$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+  	header('location: index.html');
   }
 }
 ?>
