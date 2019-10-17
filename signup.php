@@ -5,7 +5,7 @@ $username = "";
 $errors = array(); 
 
 // connect to the database need team's DB
-$db = mysqli_connect('localhost', 'root', '', 'registration');
+$db = mysqli_connect('localhost', 'devon', 'mysql', 'IT490');
 
 
 if (isset($_POST['reg_user'])) {
