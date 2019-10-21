@@ -1,48 +1,40 @@
-i<?php
-session_start();
+<?php
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-$username = "";
-$errors = array(); 
-
-// connect to the database need team's DB
-$db = mysqli_connect('localhost', 'devon', 'mysql', 'IT490');
-
-
-if (isset($_POST['reg_user'])) {
-
-  $username = mysqli_real_escape_string($db, $_POST['username']);
-  $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
-  $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
-
-
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($password_1)) { array_push($errors, "Password is required"); }
-  if ($password_1 != $password_2) {
-	array_push($errors, "The two passwords do not match");
-  }
-
-  
-  $user_check_query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
-  if ($user) { 
-    if ($user['username'] === $username) {
-      array_push($errors, "Username already exists");
+if (!empty($username) || !empty($password) ) {
+ $host = "localhost";
+    $dbUsername = "devon";
+    $dbPassword = "mysql";
+    $dbname = "IT490";
+    //create connection
+    $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+    if (mysqli_connect_error()) {
+     die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
+    } else {
+     $SELECT = "SELECT username	 From register Where username = ? Limit 1";
+     $INSERT = "INSERT Into register (username, password) values(?, ?)";
+     //Prepare statement
+     $stmt = $conn->prepare($SELECT);
+     $stmt->bind_param("s", $username);
+     $stmt->execute();
+     $stmt->bind_result($username);
+     $stmt->store_result();
+     $rnum = $stmt->num_rows;
+     if ($rnum==0) {
+      $stmt->close();
+      $stmt = $conn->prepare($INSERT);
+      $stmt->bind_param("ss", $username, $password);
+      $stmt->execute();
+      echo "New record inserted sucessfully";
+     } else {
+      echo "Someone already register using this email";
+     }
+     $stmt->close();
+     $conn->close();
     }
-   
-  }
-
-  
-  if (count($errors) == 0) {
-  	$password = md5($password_1);
-
-  	$query = "INSERT INTO ACCOUNTS (username, password) 
-  			  VALUES('$username','$password')";
-  	mysqli_query($db, $query);
-  	$_SESSION['username'] = $username;
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.html');
-  }
+} else {
+ echo "All field are required";
+ die();
 }
 ?>
