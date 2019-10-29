@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Kitchen Card Wars</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</head>
+
+
+<script>
+/*
+function HandleLoginResponse(response)
+{
+	var text = JSON.parse(response);
+//	document.getElementById("textResponse").innerHTML = response+"<p>";
+	document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
+}
+
+function LoginVariables()
+{
+	var user = document.getElementByID("Username").value;
+	var pass = document.getElementByID("Password").value;
+
+	SendLoginRequest(user, pass);
+}
+function SendLoginRequest(username,password)
+{
+	var request = new XMLHttpRequest();
+	request.open("POST","login.php",true);
+	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	request.onreadystatechange= function ()
+	{
+
+		if ((this.readyState == 4)&&(this.status == 200))
+		{
+			HandleLoginResponse(this.responseText);
+		}
+	}
+	request.send("type=login&uname="+username+"&pword="+password);
+}
+*/
+</script>
+
+<body>
+
+    <!--SVG Title-->
+    <div class="container-fluid">
+      <div class="text-center" id="logo">
+      		<!-- SVG  TITLE -->
+      		<svg version="1.1" x="0px" y="0px" width="620px" height="100px" xml:space="preserve">
+      		  <defs>
+      		    <pattern id="pattern" width="1" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      		      <rect x="0" y="0" width="1" height=".8" fill="#000000"/>
+      		    </pattern>
+      		    <text id="text" x="310" y="70" font-family="'Oswald', sans-serif" font-size="50" letter-spacing="15px" text-anchor="middle">Kitchen Card Wars</text>
+      		    <mask id="mask">
+      		      <rect x="0" y="0" width="100%" height="100%" fill="#5bd813" />
+      		      <use x="-6" y="-6" stroke="#000" stroke-width="5" xlink:href="#text" opacity="1" fill="#fff"/>
+      		    </mask>
+      		  </defs>
+      		  <use x="6" y="6" xlink:href="#text" opacity="1" fill="url(#pattern)" mask="url(#mask)"/>
+      		  <use x="0" y="0" xlink:href="#text" fill="#000000"/>
+      		</svg>
+      </div>
+      <div class="text-center">
+        Welcome to the card-based game Kitchen Card Wars! It's all about foods that fight other foods!<br> Please login down below or register to get started.
+      </div>
+    </div>
+    <br/>
+    <div class="container-fluid ">
+              <div class="row justify-content-center text-center">
+                <div class="col-md-3"><img src="images/Banana.jpg" class="img-fluid" ></div>
+                  <div class="col-md-6 login-form-1">
+                      <div class="align-left"><h3>Login:</h3></div>
+                      <form action="testRabbitMQClient.php" method="POST" autocomplete="off">
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Username" name="username"/> <br/>
+                              <input type="password" class="form-control" placeholder="Password" name="password"/><br/>
+                              <input type="submit" class="btn btn-primary" name ="account" value="Login"/>
+                          </div>
+                      </form>
+                      <a href="partials/register.html" class="btn btn-primary" role="button">Register</a><br/>
+                  </div>
+                  <div class="col-md-3"><img src="images/Pizza.jpg" class="img-fluid"></div>
+              </div>
+          </div>
+          <div></div>
+
+<body>
+
+</body>
+</html>
