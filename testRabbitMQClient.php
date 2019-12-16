@@ -1,5 +1,7 @@
 #!/usr/bin/php
+<?php session_start(); ?>
 <?php
+
 if (ob_get_level()) {
     $buf = ob_get_clean();
     ob_start();
@@ -26,8 +28,8 @@ else
 
 $request = array();
 $request['type'] = $_POST['account'];
-$request['username'] = $_POST['username'];
-$request['password'] = $_POST['password'];
+$request['username'] = $_SESSION['S_username'] = $_POST['username'];
+$request['password'] = $_SESSION['S_password'] = $_POST['password'];
 $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
@@ -36,6 +38,7 @@ $result = $_GET[$login];
 
 //echo "client received response: ".PHP_EOL;
 //print_r($response);
+echo "Taadaa: ".$result;
 echo "\n\n";
 
 

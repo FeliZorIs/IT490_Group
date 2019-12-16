@@ -15,10 +15,10 @@ function doLogin($username,$password)
 
         if ($db->connect_errno != 0)
         {
-                echo "Error connecting to database: ".$db->connect_error.PHP_EOL;
+                echo "<br>Error connecting to database: ".$db->connect_error.PHP_EOL;
                 exit(1);
         }
-        echo "Connected to database".PHP_EOL;
+        echo "<br>Connected to database".PHP_EOL;
 
 
 	      $statement = "SELECT * FROM Account WHERE  Username = '$username'";
@@ -59,10 +59,10 @@ function doRegister($username, $password)
   //Connection test
   if ($db->connect_errno != 0)
   {
-          echo "Error connecting to database: ".$db->connect_error.PHP_EOL;
+          echo "<br>Error connecting to database: ".$db->connect_error.PHP_EOL;
           exit(1);
   }
-  echo "correctly connected to database".PHP_EOL;
+  echo "<br>Connected to database".PHP_EOL;
 
   $statement = "INSERT INTO Account(Username, Password) VALUES('$username', '$password_secure')";
 
