@@ -49,5 +49,62 @@
 
 
 
+  <table>
+          <thead>
+              <tr>
+                  <td>Username</td>
+              </tr>
+          </thead>
+          <tbody>
+          <?php
+              $connect = mysqli_connect("localhost","devon", "mysql");
+              if (!$connect) {
+                  die(mysql_error());
+              }
+              mysqli_select_db("KitchenWars");
+              $results = mysqli_query("SELECT Username FROM Account LIMIT 10");
+              while($row = mysqli_fetch_array($results)) {
+              ?>
+                  <tr>
+                      <td><?php echo $row['Username']?></td>
+                  </tr>
+
+              <?php
+              }
+              ?>
+              </tbody>
+              </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

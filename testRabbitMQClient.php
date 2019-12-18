@@ -38,7 +38,8 @@ $result = $_GET[$login];
 
 //echo "client received response: ".PHP_EOL;
 //print_r($response);
-echo "Taadaa: ".$result;
+//Below is commented out from OB
+echo $result;
 echo "\n\n";
 
 

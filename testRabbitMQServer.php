@@ -18,7 +18,7 @@ function doLogin($username,$password)
                 echo "<br>Error connecting to database: ".$db->connect_error.PHP_EOL;
                 exit(1);
         }
-        echo "<br>Connected to database".PHP_EOL;
+        echo "Connected to database".PHP_EOL;
 
 
 	      $statement = "SELECT * FROM Account WHERE  Username = '$username'";
