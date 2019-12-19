@@ -10,23 +10,66 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+  <!--SVG Title-->
+  <div class="container-fluid">
+    <div class="text-center" id="logo">
+        <!-- SVG  TITLE -->
+        <svg version="1.1" x="0px" y="0px" width="620px" height="100px" xml:space="preserve">
+          <defs>
+            <pattern id="pattern" width="1" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect x="0" y="0" width="1" height=".8" fill="#000000"/>
+            </pattern>
+            <text id="text" x="310" y="70" font-family="'Oswald', sans-serif" font-size="50" letter-spacing="15px" text-anchor="middle">Kitchen Card Wars</text>
+            <mask id="mask">
+              <rect x="0" y="0" width="100%" height="100%" fill="#5bd813" />
+              <use x="-6" y="-6" stroke="#000" stroke-width="5" xlink:href="#text" opacity="1" fill="#fff"/>
+            </mask>
+          </defs>
+          <use x="6" y="6" xlink:href="#text" opacity="1" fill="url(#pattern)" mask="url(#mask)"/>
+          <use x="0" y="0" xlink:href="#text" fill="#000000"/>
+        </svg>
+    </div>
+    <div class="text-center">
+      Welcome to the card-based game Kitchen Card Wars! It's all about foods that fight other foods!<br> Enter the game at your own risk!
+    </div>
+  </div>
 
-  <!-- Button to Open the Modal -->
+<div class="text-center"> <button type="button" class="btn btn-warning"><a href="gameVer2.html">Kitchen Food Wars</a></button> </div>
+<!--
+<button type="button" class="btn btn-warning">Click Me</button>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'DBCall.php',
+                success: function(data) {
+                    alert(data);
+                    $("p").text(data);
+
+                }
+            });
+   });
+});
+</script>
+-->
+
+  <!-- Button to Open the Modal
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
     Profile
   </button>
+-->
 
   <!-- The Modal -->
   <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">Profile</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-
         <!-- Modal body -->
         <div class="modal-body">
           <div ><img src="images/profile.png" width="50" height="50" class="img-fluid" ></div> <br>
@@ -34,7 +77,6 @@
           Progress:  <br>
           XP:  <br>
         </div>
-
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -49,42 +91,12 @@
 
 
 
-  <table>
-          <thead>
-              <tr>
-                  <td>Username</td>
-              </tr>
-          </thead>
-          <tbody>
-          <?php
-              $connect = mysqli_connect("localhost","devon", "mysql");
-              if (!$connect) {
-                  die(mysql_error());
-              }
-              mysqli_select_db("KitchenWars");
-              $results = mysqli_query("SELECT Username FROM Account LIMIT 10");
-              while($row = mysqli_fetch_array($results)) {
-              ?>
-                  <tr>
-                      <td><?php echo $row['Username']?></td>
-                  </tr>
-
-              <?php
-              }
-              ?>
-              </tbody>
-              </table>
 
 
 
 
-
-
-
-
-
-
-
+<br><br>
+<img src="images/Baguette.jpg" class="img-fluid" >
 
 
 

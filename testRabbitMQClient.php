@@ -1,7 +1,5 @@
 #!/usr/bin/php
-<?php session_start(); ?>
 <?php
-
 if (ob_get_level()) {
     $buf = ob_get_clean();
     ob_start();

@@ -65,26 +65,26 @@ function doRegister($username, $password)
   echo "<br>Connected to database".PHP_EOL;
 
   $statement = "INSERT INTO Account(Username, Password) VALUES('$username', '$password_secure')";
+  //$statement = "INSERT INTO Account(Username, Password, GameID, Progress, XP) VALUES('$username', '$password_secure', '1', '2', '3')";
+  // Original one
+  // $statement = "INSERT INTO Account(Username, Password, GameID, Progress, XP,
+  //                             Dmg1, Dmg2, Dmg3, Dmg4, Dmg5,
+  //                             Shd1, Shd2, Shd3, Shd4, Shd5,
+  //                             Hth1, Hth2, Hth3,
+  //                             HthNshd1, HthNshd2, HthNshd3, HthNshd4, HthNshd5, HthNshd6,
+  //                             HthStl1, HthStl2, HthStl3, HthStl4, HthStl5,
+  //                             ShdStl1, ShdStl2, ShdStl3, ShdStl4, ShdStl5,
+  //                             Reverse, Eng1, Eng2, MultX2, MultX3, MultX4)
+  //                     VALUES('$username','$password_secure',1,2,3,
+  //                             1,1,1,0,0,
+  //                             1,1,1,0,0,
+  //                             0,0,0,
+  //                             1,1,0,1,1,0,
+  //                             1,1,1,0,0,
+  //                             1,1,1,0,0,
+  //                             0,0,0,0,0,0)";
 
-/* Original one
-  $statement = "INSERT INTO Account(Username, Password, GameID, Progress, XP,
-                              Dmg1, Dmg2, Dmg3, Dmg4, Dmg5,
-                              Shd1, Shd2, Shd3, Shd4, Shd5,
-                              Hth1, Hth2, Hth3,
-                              HthNshd1, HthNshd2, HthNshd3, HthNshd4, HthNshd5, HthNshd6,
-                              HthStl1, HthStl2, HthStl3, HthStl4, HthStl5,
-                              ShdStl1, ShdStl2, ShdStl3, ShdStl4, ShdStl5,
-                              Reverse, Eng1, Eng2, MultX2, MultX3, MultX4)
-                      VALUES('$username','$password_hash',NULL,0,0,
-                              1,1,1,0,0,
-                              1,1,1,0,0,
-                              0,0,0,
-                              1,1,0,1,1,0,
-                              1,1,1,0,0,
-                              1,1,1,0,0,
-                              0,0,0,0,0,0)";
 
-*/
 
   /*
 
