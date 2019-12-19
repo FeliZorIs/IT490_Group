@@ -1,0 +1,12 @@
+[Unit]
+Description= Error Logging Service
+
+[Service]
+User=systemuser
+Group=systemuser
+ExecStart=/var/www/html/RMQListener.php
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
